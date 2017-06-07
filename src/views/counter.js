@@ -1,14 +1,15 @@
 import { h } from 'hyperapp';
 
-export default (state, msg) => (
+export default (state, actions, app) => (
   <div class="counter">
-    <h1>hyperapp-one</h1>
+    <h1>hyperapp-{app}</h1>
     <p><em>With JSX and Webpack</em></p>
     <hr />
     <section>
       <button
         class="sub"
-        onClick={msg.sub}
+        id={app}
+        onclick={actions.sub}
         disabled={state.num < 1}
       >
         -
@@ -16,7 +17,8 @@ export default (state, msg) => (
       <h1 class='count'>{state.num}</h1>
       <button
         class="add"
-        onClick={msg.add}
+        id={app}
+        onclick={actions.add}
       >
         +
       </button>

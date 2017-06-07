@@ -1,4 +1,10 @@
 export default {
-  add: ({ num }) => ({ num: num + 1 }),
-  sub: ({ num }) => ({ num: num - 1 }),
+  add: (state, _, { target }) => {
+    const { id } = target;
+    return { [id]: { num: state[id].num + 1 } };
+  },
+  sub: (state, _, { target }) => {
+    const { id } = target;
+    return { [id]: { num: state[id].num - 1 } };
+  },
 };
